@@ -80,9 +80,9 @@ composer require filament/filament:"^3.2" -W
 php artisan filament:install --panels
 ```
 
-Then config all of dataBase connection.
-Then run migrations.
-Then create a user with:
+- Then config all of dataBase connection.
+- Then run migrations.
+- Then create a user with:
 
 ```console
 php artisan make:filament-user
@@ -91,14 +91,16 @@ php artisan make:filament-user
 php artisan serve
 ```
 
-Go to browser url: http://localhost:8000/admin/login
+- Go to browser:
+
+- **[Login](http://localhost:8000/admin/login)**
 
 ```console
 php artisan make:model Product -a
 ```
 
-Delete ProductPolicy php file.
-Then add properties into the model.
+- Delete ProductPolicy php file.
+- Then add properties into the model.
 
 ```console
 php artisan migrate
