@@ -68,24 +68,42 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Comandline
 
--composer create-project laravel/laravel filament
--composer require filament/filament:"^3.2" -W
--php artisan filament:install --panels
+```console
+composer create-project laravel/laravel filament
+```
+
+```console
+composer require filament/filament:"^3.2" -W
+```
+
+```console
+php artisan filament:install --panels
+```
 
 Then config all of dataBase connection.
 Then run migrations.
 Then create a user with:
 
--php artisan make:filament-user
--php artisan serve
+```console
+php artisan make:filament-user
+```
+```console
+php artisan serve
+```
 
 Go to browser url: http://localhost:8000/admin/login
 
--php artisan make:model Product -a
+```console
+php artisan make:model Product -a
+```
 
 Delete ProductPolicy php file.
 Then add properties into the model.
 
--php artisan migrate
--php artisan make:filament-resource Product
+```console
+php artisan migrate
+```
+```console
+php artisan make:filament-resource Product
+```
 
