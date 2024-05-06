@@ -87,13 +87,12 @@ php artisan filament:install --panels
 ```console
 php artisan make:filament-user
 ```
+
 ```console
 php artisan serve
 ```
 
-- Go to browser:
-
-- **[Login](http://localhost:8000/admin/login)**
+- Go to browser [Login](http://localhost:8000/admin/login).
 
 ```console
 php artisan make:model Product -a
@@ -105,7 +104,8 @@ php artisan make:model Product -a
 ```console
 php artisan migrate
 ```
+
 ```console
-php artisan make:filament-resource Product
+php artisan make:filament-resource Product --generate --soft-deletes --view 
 ```
 

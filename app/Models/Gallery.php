@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 
-class Product extends Model
+class Gallery extends Model
 {
     use HasFactory, Notifiable, HasUuids;
 
-    protected $table = 'products';
+    protected $table = 'galleries';
 
     protected $primaryKey = 'id';
 
     protected $fillable = ['name', 'description'];
 
-    public function catalogo(): HasMany
+    public function catalogo(): BelongsTo
     {
-        return $this->hasMany(Gallery::class);
+        return $this->belongsTo(Product::class);
     }
 }

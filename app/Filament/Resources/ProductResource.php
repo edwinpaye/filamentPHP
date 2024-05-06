@@ -19,11 +19,37 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $modelLabel = 'Producto';
+
+    protected static ?string $pluralModelLabel = 'Productos';
+
+    // protected static ?string $navigationLabel = 'Productos aqui';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                // Forms\Components\Select::make('country_id')
+                //     ->relationship('country', 'name')
+                //     ->required(),
+                Forms\Components\TextInput::make('name')
+                    ->required(),
+                Forms\Components\TextInput::make('description')
+                    ->required(),
+                Forms\Components\FileUpload::make('attachments')
+                    ->multiple(),
+                // Forms\Components\Select::make('type')
+                //     ->options([
+                //         'decline' => 'Decline',
+                //         'approved' => 'Approved',
+                //         'pending' => 'Pending',
+
+                //     ])
+                //     ->required(),
+                // Forms\Components\DatePicker::make('day')
+                //     ->required(),
+                // Forms\Components\Toggle::make('is_active')
+                //     ->required(),
             ]);
     }
 
@@ -31,13 +57,48 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->searchable()
+                    ->sortable(),
+                // Tables\Columns\IconColumn::make('is_active')
+                //     ->boolean(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                // Tables\Columns\TextColumn::make('day')
+                //     ->date()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('type')
+                //     ->badge()
+                //     ->color(fn (string $state): string => match ($state) {
+                //         'pending' => 'gray',
+                //         'approved' => 'success',
+                //         'decline' => 'danger',
+                //     })
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('deleted_at')
+                //     ->dateTime()
+                //     ->sortable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                // SelectFilter::make('type')
+                // ->options([
+                //     'work' => 'Working',
+                //     'pause' => 'In Pause',
+                // ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
